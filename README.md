@@ -394,3 +394,29 @@ bind_address 127.0.0.1
 ```bash
 sudo systemctl restart mosquitto
 ```
+
+# Screen Android di desktop Linux
+Untuk menampilkan Layar smartphone android di Linux Desktop langkhnya
+1. sudo apt install scrcpy
+2. Aktifkan USB Debugging di Android:
+- Buka Settings → About phone.
+- Tap Build number sebanyak 7 kali untuk mengaktifkan Developer options.
+- Kembali ke Settings dan cari Developer options.
+- Aktifkan USB Debugging.
+## Hubungkan Android ke PC dengan USB:
+- Gunakan kabel USB dan sambungkan ponsel ke komputer Ubuntu.
+- Jika diminta, izinkan akses debugging USB di perangkat Android (biasanya akan muncul pop-up yang harus kamu setujui).
+- Jalankan scrcpy
+```bash
+scrcpy
+```
+## Hubungkan Android ke PC dengan wifi:
+untuk menampilkan layar android ke PC pada jaringan yang sama  lakukan perintah ini
+1. pastikan opsi ADB wireless debugging diaktifkan dulu
+
+```bash
+adb tcpip 5555
+adb connect <IP-Address-Android>:5555
+scrcpy
+```
+Ganti <IP-Address-Android> dengan alamat IP ponselmu (yang bisa ditemukan di Wi-Fi settings di Android).
