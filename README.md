@@ -403,6 +403,9 @@ Untuk menampilkan Layar smartphone android di Linux Desktop langkhnya
 - Tap Build number sebanyak 7 kali untuk mengaktifkan Developer options.
 - Kembali ke Settings dan cari Developer options.
 - Aktifkan USB Debugging.
+3. lebih jelas lihat gambar ini:
+Berikut adalah gambar Android:
+![Android Picture](https://github.com/hendrieepis/PrakIOT/raw/main/picture/01-android.png)
 ## Hubungkan Android ke PC dengan USB:
 - Gunakan kabel USB dan sambungkan ponsel ke komputer Ubuntu.
 - Jika diminta, izinkan akses debugging USB di perangkat Android (biasanya akan muncul pop-up yang harus kamu setujui).
@@ -413,7 +416,9 @@ scrcpy
 ## Hubungkan Android ke PC dengan wifi:
 untuk menampilkan layar android ke PC pada jaringan yang sama  lakukan perintah ini
 1. pastikan opsi ADB wireless debugging diaktifkan dulu
-
+Berikut adalah gambar Android:
+![Android Picture](https://github.com/hendrieepis/PrakIOT/blob/main/picture/02-android-adb-wireless.png)
+2. lakukan perintah berikut
 ```bash
 adb tcpip 5555
 adb connect <IP-Address-Android>:5555
