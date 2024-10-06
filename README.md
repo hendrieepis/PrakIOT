@@ -372,3 +372,25 @@ GPIO 0 ────[330Ω Resistor]────[LED]────GND
 | Behavior tidak konsisten | Noise pada GPIO 0 | Tambah kapasitor 100nF ke GND |
 
 *Note: Jika memungkinkan, lebih baik menggunakan GPIO lain yang tidak terkait dengan proses boot untuk menghindari masalah potensial.*
+
+
+## Konfigurasi Mosquitto:
+default konfigurasi mosquitto tidak mengijinkan koneksi selain dari localhost, agar bisa menghubungkan dengan ip external langkah yang harus dilakukkan:
+1. Edit Lokasi file konfigurasi Mosquitto biasanya berada di /etc/mosquitto/mosquitto.conf atau /etc/mosquitto/conf.d/default.conf. gunakan perintah berikut:
+```bash
+sudo nano /etc/mosquitto/mosquitto.conf
+```
+
+2. Cari atau tambahkan baris berikut untuk mengonfigurasi Mosquitto agar mendengarkan pada semua antarmuka jaringan:
+```yaml
+listener 1883
+allow_anonymous true
+```
+3.  Pastikan listener 1883 tidak terbatas hanya untuk localhost. hapus jika  ada baris seperti ini:
+```yaml
+bind_address 127.0.0.1
+```
+4. Restart Mosquitto:
+```bash
+sudo systemctl restart mosquitto
+```
