@@ -415,18 +415,19 @@ scrcpy
 ```
 ## Hubungkan Android ke PC dengan wifi:
 Untuk menampilkan layar android ke PC pada jaringan yang sama  lakukan perintah ini
-1. Pastikan opsi ADB wireless debugging diaktifkan dulu
+1. ⚠️ Hubungkan Android anda dengan Acesspoint terlebih dahulu 
+2. Pastikan opsi ADB wireless debugging diaktifkan dulu
 Berikut adalah gambar Android:
 ![Android Picture](https://github.com/hendrieepis/PrakIOT/blob/main/picture/02-android-adb-wireless.png)
-2. Binding adb ke tcpip 
+3. Binding adb ke tcpip 
 ```
 adb tcpip 5555
 ```
-3. Koneksi ke ip android dengan adb connect dengan format `adb connect <IP-Address-Android>:5555`
+4. Koneksi ke ip android dengan adb connect dengan format `adb connect <IP-Address-Android>:5555`
 ```bash
 adb connect 192.168.1.3:5555
 ```
-4. Jalankan scrcpy
+5. Jalankan scrcpy
 ```bash
 scrcpy
 ```
