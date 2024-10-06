@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = '.pio/build/09-MQTT-pub/firmware.bin' 
+elf = '.pio/build/09-MQTT-pub/firmware.elf' 
