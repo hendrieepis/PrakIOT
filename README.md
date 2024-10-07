@@ -136,7 +136,9 @@ Perbandingan spesifikasi antara varian ESP32 yang populer digunakan.
 
 ## Skema rangkaian
 skema rangkain dari source code
-![skema] (https://github.com/hendrieepis/PrakIOT/blob/main/picture/skema.png)
+
+![skema](https://github.com/hendrieepis/PrakIOT/blob/main/picture/skema.png)
+
 ## Important Notes
 
 ### Keamanan
