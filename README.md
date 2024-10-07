@@ -133,6 +133,10 @@ Perbandingan spesifikasi antara varian ESP32 yang populer digunakan.
 | IMU MOSI | GPIO23 | Output | Normal | Available | - Default VSPI MOSI |
 | IMU CS | GPIO5 | Output | Normal | Available | - Default VSPI CS |
 
+
+## Skema rangkaian
+skema rangkain dari source code
+![skema] (https://github.com/hendrieepis/PrakIOT/blob/main/picture/skema.png)
 ## Important Notes
 
 ### Keamanan
