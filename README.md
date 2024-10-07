@@ -1,6 +1,80 @@
-# Change default platformIO:
-- get project folder: pio settings get projects_dir
-- change project Folder: pio settings set projects_dir "New Directory"
+# PlatformIO command
+## Change default platformIO:
+- Get project folder: 
+```
+pio settings get projects_dir
+```
+- change project Folder: 
+``` 
+pio settings set projects_dir "New Directory"
+```
+## inisialisasi project dengan platformio
+1. init Project esp32-S3
+```
+pio project init --board esp32-s3-devkitc-1
+```
+2.  Konfigurasi Project dengan RAM 16MB PSRAM 8MB
+Setelah proyek diinisialisasi, buka file `platformio.ini` di direktori proyek Anda.
+
+3. Modifikasi file `platformio.ini` untuk menentukan ukuran Flash dan PSRAM yang sesuai. Tambahkan baris berikut di bawah bagian `[env:esp32-s3-devkitc-1]`:
+
+   ```ini
+   [env:esp32-s3-devkitc-1]
+   platform = espressif32
+   board = esp32-s3-devkitc-1
+   framework = arduino
+   board_build.flash_mode = qio
+   board_build.flash_size = 16MB
+   board_build.psram_type = opi
+   board_upload.flash_size = 16MB
+   board_build.partitions = huge_app.csv
+   build_flags = 
+       -DBOARD_HAS_PSRAM
+       -DCONFIG_SPIRAM_CACHE_WORKAROUND
+       -mfix-esp32-psram-cache-issue
+   ```
+
+Penjelasan untuk beberapa opsi penting:
+
+- `board_build.flash_mode = qio`: Mengatur mode flash ke Quad I/O.
+- `board_build.flash_size = 16MB`: Menentukan ukuran flash 16MB.
+- `board_build.psram_type = opi`: Mengatur tipe PSRAM ke OPI (Octal SPI).
+- `board_upload.flash_size = 16MB`: Memastikan ukuran flash yang benar saat upload.
+- `board_build.partitions = huge_app.csv`: Menggunakan skema partisi untuk aplikasi besar.
+- Build flags:
+  - `-DBOARD_HAS_PSRAM`: Mengaktifkan dukungan PSRAM.
+  - `-DCONFIG_SPIRAM_CACHE_WORKAROUND`: Menerapkan workaround untuk masalah cache PSRAM.
+  - `-mfix-esp32-psram-cache-issue`: Flag kompiler untuk mengatasi masalah cache PSRAM.
+  
+## Mengetahui List project yang tersedia diplatformIO
+```
+pio boards
+pio boards | grep esp32-s3
+```
+## Trouble shooting platformIO
+This error suggests that PlatformIO is unable to find or install the required toolchain for the ESP32-S3 development board. Let's troubleshoot this issue step by step:
+
+1. Update PlatformIO:
+   pastikan platformio diupgrade dengan perintah
+
+   ```
+   pio upgrade
+   ```
+
+2. Update the platform:
+   Bila platformIO bermasaalah coba update dengan perintah berikut:
+
+   ```
+   pio platform update espressif32
+   ```
+
+3. Clear PlatformIO cache:
+   Terkadan clear cache akan menyelesaikan masalah
+
+   ```
+   pio system prune
+   ```
+
 # Perbandingan ESP32 ESP32-S3, ESP32-C3 dan ESP32-C6 
 # ESP32 Family Comparison
 Perbandingan spesifikasi antara varian ESP32 yang populer digunakan.
