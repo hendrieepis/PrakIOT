@@ -14,8 +14,8 @@ const char* ssid = "your-ssid";
 const char* password = "your-password";
 
 // Pengaturan MQTT Broker
-// const char* broker = "broker.mqtt-dashboard.com"; 
-const char* broker = "192.168.221.85";
+const char* broker = "broker.mqtt-dashboard.com"; 
+// const char* broker = "192.168.221.85";
 int port = 1883;
 const char* temperatureTopic = "elkapens/labwsn/suhu";
 const char* humidityTopic = "elkapens/labwsn/kelembapan";
